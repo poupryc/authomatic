@@ -86,6 +86,6 @@ export function handleLogin(setting: Setting, provider: ClientFactory) {
       maxAge: 60 * 60
     });
 
-    return { url };
+    return url;
   };
 }

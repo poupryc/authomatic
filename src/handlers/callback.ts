@@ -43,6 +43,6 @@ export function handleCallback(
 
     await store.write(res, session);
 
-    return { redirectTo: setting.postLoginRedirect };
+    return setting.postLoginRedirect;
   };
 }
