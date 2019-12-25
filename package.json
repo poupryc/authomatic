@@ -1,11 +1,12 @@
 {
   "name": "@helloedit/authomatic",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "main": "./dist/index.js",
   "typings": "./dist/",
   "author": "HelloEdit (Corentin Poupry)",
   "license": "MIT",
   "browser": "./dist/browser.js",
+  "private": false,
   "devDependencies": {
     "@now/node": "^1.3.0",
     "@types/cookie": "^0.3.3",
