@@ -63,7 +63,7 @@ export class SessionStore {
     const cookie = cookies[cookieName];
     if (!cookie || cookie.length === 0) return null;
 
-    const unsealed = await Iron.unseal(cookie, cookieSecret, Iron.defaults);
+    const unsealed = await SessionStore.unseal(cookie, cookieSecret);
     return unsealed ? (unsealed as Session) : null;
   }
 
@@ -79,7 +79,7 @@ export class SessionStore {
       cookieSecret
     } = this.setting;
 
-    const encrypted = await Iron.seal(session, cookieSecret, Iron.defaults);
+    const encrypted = await SessionStore.seal(session, cookieSecret);
 
     setCookie(res, {
       name: cookieName,
@@ -89,5 +89,23 @@ export class SessionStore {
       domain: cookieDomain,
       sameSite: cookieSameSite
     });
+  }
+
+  /**
+   * Decrypt the payload
+   * @param payload string generated with seal
+   * @param secret secret used to encrypt the payload
+   */
+  static async unseal(payload: string, secret: string) {
+    return await Iron.unseal(payload, secret, Iron.defaults);
+  }
+
+  /**
+   * Encrypt session object
+   * @param session session object to encrypt
+   * @param secret secret used to encrypt the session
+   */
+  static async seal(session: Session, secret: string) {
+    return await Iron.seal(session, secret, Iron.defaults);
   }
 }

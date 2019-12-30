@@ -95,6 +95,7 @@ export function createInstance(setting: Setting) {
     handleLogin: handlers.handleLogin(setting, client),
     handleLogout: handlers.handleLogout(setting),
     handleCallback: handlers.handleCallback(setting, client, store),
-    handleProfile: handlers.handleProfile(store)
+    handleProfile: handlers.handleProfile(store),
+    useSession: handlers.handleSession(store)
   };
 }

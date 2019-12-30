@@ -1,4 +1,5 @@
 import { createInstance, Setting } from "./instance";
+import { useSession } from "./handlers/session";
 import { setCookie } from "./cookie";
 
 export function initAuth0(setting: Setting): ReturnType<typeof createInstance> {
@@ -9,4 +10,4 @@ export function initAuth0(setting: Setting): ReturnType<typeof createInstance> {
   return require("./instance").createInstance(setting);
 }
 
-export { setCookie };
+export { setCookie, useSession };
