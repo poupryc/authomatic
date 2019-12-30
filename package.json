@@ -1,6 +1,6 @@
 {
   "name": "@helloedit/authomatic",
-  "version": "1.4.1",
+  "version": "1.5.1",
   "main": "./dist/index.js",
   "typings": "./dist/",
   "author": "HelloEdit (Corentin Poupry)",
